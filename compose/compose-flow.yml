@@ -1,0 +1,16 @@
+---
+profiles:
+  local:
+    - docker-compose.yml
+
+  test:
+    - docker-compose.yml
+
+rancher:
+  project: System
+
+manifests:
+  - ./cron-job.yaml
+
+namespaces:
+  - kube-hunter
