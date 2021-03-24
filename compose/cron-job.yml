@@ -1,0 +1,28 @@
+---
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: ${CF_PROJECT}
+  namespace: ${CF_PROJECT}
+spec:
+  schedule: "0 6 * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: ${CF_PROJECT}
+              image: ${DOCKER_IMAGE}
+              command: ["kube-hunter"]
+              args: ["--pod"]
+              resources:
+                limits:
+                  cpu: 100m
+                  memory: 100Mi
+                requests:
+                  cpu: 100m
+                  memory: 100Mi
+          restartPolicy: Never
+          imagePullSecrets:
+          - name: oss-registry
+      backoffLimit: 4
