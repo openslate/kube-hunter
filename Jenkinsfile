@@ -16,6 +16,6 @@ def getDeployEnv = {
 openslatePipeline {
     mentions = '<@UB22LFDEJ>'
     deployEnv = getDeployEnv
-    publish = publishWhen
-    deploy = publishWhen
+    publish = deployWhen
+    deploy = deployWhen
 }
