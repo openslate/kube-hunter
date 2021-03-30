@@ -31,3 +31,5 @@ pip-wheel-metadata
 thumbs.db
 __pycache__
 .mypy_cache
+
+compose-flow-*
